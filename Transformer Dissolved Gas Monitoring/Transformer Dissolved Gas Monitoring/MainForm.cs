@@ -32,57 +32,8 @@ namespace Transformer_Dissolved_Gas_Monitoring
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            try
-            {
-                TcpClient client = new TcpClient(serverIP, port);
-                //client.ConnectAsync(serverIP, port).Wait(TimeSpan.FromSeconds(2));
-                //int byteCount = Encoding.ASCII.GetByteCount(txtRequest.Text);
-                //MessageBox.Show("success");
-                byte[] sendData;
-                sendData = Encoding.ASCII.GetBytes(txtRequest.Text);
-                NetworkStream stream = client.GetStream();
-                stream.Write(sendData, 0, sendData.Length);
-                StreamReader sr = new StreamReader(stream);
-                sr.BaseStream.ReadTimeout = 3000;
-                try
-                {
-                    string response = sr.ReadLine();
-                    string transName = ParseString(response, 1);
-                    string gasName = ParseString(response, 2);
-                    string gasValue = ParseString(response, 3);
-                    if (transName == "T1")
-                    {
-                        txtReceiveA.Text = gasName + " = " + gasValue;
-                    }
-                    else if (transName == "T2")
-                    {
-                        txtReceiveB.Text = gasName + " = " + gasValue;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Invalid transformer name.");
-                    }
-                }
-                catch (IOException)
-                {
-                    string message = "A connection attempt failed because the connected party did not properly respond after a period of time.";
-                    MessageBox.Show(message, "Read Timeout Error");
-                }
-                stream.Close();
-                client.Close();
-            }
-            catch (SocketException)
-            {
-                MessageBox.Show("No connection could be made because the target machine actively refused it.", "Connection Error");
-            }
 
         }
-
-        //private void Form1_Load(object sender, EventArgs e)
-        //{
-        //    //ProgressBar progBar = new ProgressBar();
-        //    //progBar.Orientation = Orientation.Vertical;
-        //}
 
         public string ParseString(string rawString, int fieldNum)
         {
@@ -123,7 +74,7 @@ namespace Transformer_Dissolved_Gas_Monitoring
             if (client.Connected)
             {
                 byte[] sendData;
-                sendData = Encoding.ASCII.GetBytes("T1|H2");
+                sendData = Encoding.ASCII.GetBytes("T2A");
                 NetworkStream stream = client.GetStream();
                 stream.Write(sendData, 0, sendData.Length);
                 StreamReader sr = new StreamReader(stream);
@@ -132,15 +83,78 @@ namespace Transformer_Dissolved_Gas_Monitoring
                 {
                     string response = sr.ReadLine();
                     string transName = ParseString(response, 1);
-                    string gasName = ParseString(response, 2);
-                    string gasValue = ParseString(response, 3);
                     if (transName == "T1")
                     {
-                        txtReceiveA.Text = gasName + " = " + gasValue;
+                        string gasName = ParseString(response, 2);
+                        string gasValue = ParseString(response, 3);
+                        if (gasName == "H2")
+                        {
+                            trkH2A.Value = Convert.ToInt32((100/1000.0)*Convert.ToDouble(gasValue));
+                            lblH2A.Text = gasValue;
+                        }
+                        else if(gasName == "CH4")
+                        {
+                            trkCH4A.Value = Convert.ToInt32((100 / 80.0) * Convert.ToDouble(gasValue));
+                            lblCH4A.Text = gasValue;
+                        }
+                        else if (gasName == "C2H4")
+                        {
+                            trkC2H4A.Value = Convert.ToInt32((100 / 80.0) * Convert.ToDouble(gasValue));
+                            lblC2H4A.Text = gasValue;
+                        }
+                        else if (gasName == "C2H6")
+                        {
+                            trkC2H6A.Value = Convert.ToInt32((100 / 35.0) * Convert.ToDouble(gasValue));
+                            lblC2H6A.Text = gasValue;
+                        }
                     }
                     else if (transName == "T2")
                     {
-                        txtReceiveB.Text = gasName + " = " + gasValue;
+                        string gasName = ParseString(response, 2);
+                        string gasValue = ParseString(response, 3);
+                        if (gasName == "H2")
+                        {
+                            trkH2B.Value = Convert.ToInt32((100 / 1000.0) * Convert.ToDouble(gasValue));
+
+                        }
+                        else if (gasName == "CH4")
+                        {
+                            trkCH4B.Value = Convert.ToInt32((100 / 80.0) * Convert.ToDouble(gasValue));
+                        }
+                    }
+                    else if (transName == "T1A")
+                    {
+                        trkH2A.Value = Convert.ToInt32((100 / 1000.0) * Convert.ToDouble(ParseString(response, 2)));
+                        lblH2A.Text = ParseString(response, 2);
+                        trkCH4A.Value = Convert.ToInt32((100 / 80.0) * Convert.ToDouble(ParseString(response, 3)));
+                        lblCH4A.Text = ParseString(response, 3);
+                        trkC2H4A.Value = Convert.ToInt32((100 / 80.0) * Convert.ToDouble(ParseString(response, 4)));
+                        lblC2H4A.Text = ParseString(response, 4);
+                        trkC2H6A.Value = Convert.ToInt32((100 / 35.0) * Convert.ToDouble(ParseString(response, 5)));
+                        lblC2H6A.Text = ParseString(response, 5);
+                        trkCOA.Value = Convert.ToInt32((100 / 1000.0) * Convert.ToDouble(ParseString(response, 6)));
+                        lblCOA.Text = ParseString(response, 6);
+                        trkCO2A.Value = Convert.ToInt32((100 / 15000.0) * Convert.ToDouble(ParseString(response, 7)));
+                        lblCO2A.Text = ParseString(response, 7);
+                        trkC2H2A.Value = Convert.ToInt32((100 / 70.0) * Convert.ToDouble(ParseString(response, 8)));
+                        lblC2H2A.Text = ParseString(response, 8);
+                    }
+                    else if (transName == "T2A")
+                    {
+                        trkH2B.Value = Convert.ToInt32((100 / 1000.0) * Convert.ToDouble(ParseString(response, 2)));
+                        lblH2B.Text = ParseString(response, 2);
+                        trkCH4B.Value = Convert.ToInt32((100 / 80.0) * Convert.ToDouble(ParseString(response, 3)));
+                        lblCH4B.Text = ParseString(response, 3);
+                        trkC2H4B.Value = Convert.ToInt32((100 / 80.0) * Convert.ToDouble(ParseString(response, 4)));
+                        lblC2H4B.Text = ParseString(response, 4);
+                        trkC2H6B.Value = Convert.ToInt32((100 / 35.0) * Convert.ToDouble(ParseString(response, 5)));
+                        lblC2H6B.Text = ParseString(response, 5);
+                        trkCOB.Value = Convert.ToInt32((100 / 1000.0) * Convert.ToDouble(ParseString(response, 6)));
+                        lblCOB.Text = ParseString(response, 6);
+                        trkCO2B.Value = Convert.ToInt32((100 / 15000.0) * Convert.ToDouble(ParseString(response, 7)));
+                        lblCO2B.Text = ParseString(response, 7);
+                        trkC2H2B.Value = Convert.ToInt32((100 / 70.0) * Convert.ToDouble(ParseString(response, 8)));
+                        lblC2H2B.Text = ParseString(response, 8);
                     }
                     else
                     {

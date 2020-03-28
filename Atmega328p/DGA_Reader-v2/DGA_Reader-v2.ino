@@ -73,7 +73,26 @@ void loop() {
     String gasName = ExtractField(SerialData,2);
     SR("T2|" + gasName + "|" + (String) ReadT2GasLevel(gasName));
   }
-
+  else if (CommandField == "T1A"){
+    SR("T1A|" + 
+    (String) ReadT1GasLevel("H2") + "|" +
+    (String) ReadT1GasLevel("CH4") + "|" +
+    (String) ReadT1GasLevel("C2H4") + "|" +
+    (String) ReadT1GasLevel("C2H6") + "|" +
+    (String) ReadT1GasLevel("CO") + "|" +
+    (String) ReadT1GasLevel("CO2") + "|" +
+    (String) ReadT1GasLevel("C2H2"));
+  }
+  else if (CommandField == "T2A"){
+    SR("T2A|" + 
+    (String) ReadT2GasLevel("H2") + "|" +
+    (String) ReadT2GasLevel("CH4") + "|" +
+    (String) ReadT2GasLevel("C2H4") + "|" +
+    (String) ReadT2GasLevel("C2H6") + "|" +
+    (String) ReadT2GasLevel("CO") + "|" +
+    (String) ReadT2GasLevel("CO2") + "|" +
+    (String) ReadT2GasLevel("C2H2"));
+  }
   //...add code here
   
   else if (CommandField == "HB"){
@@ -107,6 +126,21 @@ float ReadT1GasLevel(String gas){
     delay(100);
     return 35.0*(analogRead(A0)/1023.0);
   }
+  else if (gas == "CO"){
+    PORTD = (PORTD & B11100111)|B00100000; //set multiplexer to read CO
+    delay(100);
+    return 1000.0*(analogRead(A0)/1023.0);
+  }
+  else if (gas == "CO2"){
+    PORTD = (PORTD & B11101111)|B00101000; //set multiplexer to read CO2
+    delay(100);
+    return 15000.0*(analogRead(A0)/1023.0);
+  }
+  else if (gas == "C2H2"){
+    PORTD = (PORTD & B11110111)|B00110000; //set multiplexer to read C2H2
+    delay(100);
+    return 70.0*(analogRead(A0)/1023.0);
+  }
   else
     return -1;
 }
@@ -126,12 +160,27 @@ float ReadT2GasLevel(String gas){
   else if (gas == "C2H4"){
     PORTD = (PORTD & B11010111)|B00010000; //set multiplexer to read C2H4
     delay(100);
-    return 100.0*(analogRead(A1)/1023.0);
+    return 80.0*(analogRead(A1)/1023.0);
   }
   else if (gas == "C2H6"){
     PORTD = (PORTD & B11011111)|B00011000; //set multiplexer to read C2H6
     delay(100);
     return 35.0*(analogRead(A1)/1023.0);
+  }
+  else if (gas == "CO"){
+    PORTD = (PORTD & B11100111)|B00100000; //set multiplexer to read CO
+    delay(100);
+    return 1000.0*(analogRead(A1)/1023.0);
+  }
+  else if (gas == "CO2"){
+    PORTD = (PORTD & B11101111)|B00101000; //set multiplexer to read CO2
+    delay(100);
+    return 15000.0*(analogRead(A1)/1023.0);
+  }
+  else if (gas == "C2H2"){
+    PORTD = (PORTD & B11110111)|B00110000; //set multiplexer to read C2H2
+    delay(100);
+    return 70.0*(analogRead(A1)/1023.0);
   }
   else
     return -1;

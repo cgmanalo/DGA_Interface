@@ -17,3 +17,21 @@ C:\Users\cesar\source\repos\Transformer Dissolved Gas Monitoring\Transformer Dis
 C:\Users\cesar\source\repos\Transformer Dissolved Gas Monitoring\Transformer Dissolved Gas Monitoring\obj\Debug\Transformer Dissolved Gas Monitoring.exe
 C:\Users\cesar\source\repos\Transformer Dissolved Gas Monitoring\Transformer Dissolved Gas Monitoring\obj\Debug\Transformer Dissolved Gas Monitoring.pdb
 C:\Users\cesar\source\repos\Transformer Dissolved Gas Monitoring\Transformer Dissolved Gas Monitoring\obj\Debug\Transformer Dissolved Gas Monitoring.csprojAssemblyReference.cache
+C:\Latest Projects\Ferrer-Paterno\DGA_Interface\Transformer Dissolved Gas Monitoring\Transformer Dissolved Gas Monitoring\bin\Debug\Glg.NetCE.dll
+C:\Latest Projects\Ferrer-Paterno\DGA_Interface\Transformer Dissolved Gas Monitoring\Transformer Dissolved Gas Monitoring\bin\Debug\Transformer Dissolved Gas Monitoring.exe.config
+C:\Latest Projects\Ferrer-Paterno\DGA_Interface\Transformer Dissolved Gas Monitoring\Transformer Dissolved Gas Monitoring\bin\Debug\Transformer Dissolved Gas Monitoring.exe
+C:\Latest Projects\Ferrer-Paterno\DGA_Interface\Transformer Dissolved Gas Monitoring\Transformer Dissolved Gas Monitoring\bin\Debug\Transformer Dissolved Gas Monitoring.pdb
+C:\Latest Projects\Ferrer-Paterno\DGA_Interface\Transformer Dissolved Gas Monitoring\Transformer Dissolved Gas Monitoring\bin\Debug\Arction.WPF.Gauges.dll
+C:\Latest Projects\Ferrer-Paterno\DGA_Interface\Transformer Dissolved Gas Monitoring\Transformer Dissolved Gas Monitoring\bin\Debug\JurassicGLG.dll
+C:\Latest Projects\Ferrer-Paterno\DGA_Interface\Transformer Dissolved Gas Monitoring\Transformer Dissolved Gas Monitoring\bin\Debug\Arction.WPF.Gauges.xml
+C:\Latest Projects\Ferrer-Paterno\DGA_Interface\Transformer Dissolved Gas Monitoring\Transformer Dissolved Gas Monitoring\bin\Debug\Interop.GlgoleLib.dll
+C:\Latest Projects\Ferrer-Paterno\DGA_Interface\Transformer Dissolved Gas Monitoring\Transformer Dissolved Gas Monitoring\bin\Debug\AxInterop.GlgoleLib.dll
+C:\Latest Projects\Ferrer-Paterno\DGA_Interface\Transformer Dissolved Gas Monitoring\Transformer Dissolved Gas Monitoring\obj\Debug\Interop.GlgoleLib.dll
+C:\Latest Projects\Ferrer-Paterno\DGA_Interface\Transformer Dissolved Gas Monitoring\Transformer Dissolved Gas Monitoring\obj\Debug\AxInterop.GlgoleLib.dll
+C:\Latest Projects\Ferrer-Paterno\DGA_Interface\Transformer Dissolved Gas Monitoring\Transformer Dissolved Gas Monitoring\obj\Debug\Transformer Dissolved Gas Monitoring.csproj.ResolveComReference.cache
+C:\Latest Projects\Ferrer-Paterno\DGA_Interface\Transformer Dissolved Gas Monitoring\Transformer Dissolved Gas Monitoring\obj\Debug\Transformer_Dissolved_Gas_Monitoring.frmMain.resources
+C:\Latest Projects\Ferrer-Paterno\DGA_Interface\Transformer Dissolved Gas Monitoring\Transformer Dissolved Gas Monitoring\obj\Debug\Transformer_Dissolved_Gas_Monitoring.Properties.Resources.resources
+C:\Latest Projects\Ferrer-Paterno\DGA_Interface\Transformer Dissolved Gas Monitoring\Transformer Dissolved Gas Monitoring\obj\Debug\Transformer Dissolved Gas Monitoring.csproj.GenerateResource.cache
+C:\Latest Projects\Ferrer-Paterno\DGA_Interface\Transformer Dissolved Gas Monitoring\Transformer Dissolved Gas Monitoring\obj\Debug\Transformer Dissolved Gas Monitoring.csproj.CopyComplete
+C:\Latest Projects\Ferrer-Paterno\DGA_Interface\Transformer Dissolved Gas Monitoring\Transformer Dissolved Gas Monitoring\obj\Debug\Transformer Dissolved Gas Monitoring.exe
+C:\Latest Projects\Ferrer-Paterno\DGA_Interface\Transformer Dissolved Gas Monitoring\Transformer Dissolved Gas Monitoring\obj\Debug\Transformer Dissolved Gas Monitoring.pdb
